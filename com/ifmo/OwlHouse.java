@@ -1,25 +1,46 @@
 package com.ifmo;
 
+/**
+ * The class realized the Owl's House location.
+ */
 public class OwlHouse extends Location
 {
     private String[] guest;
     private String host;
 
+    /**
+     * Class constructor.
+     *
+     * @param name name of an object
+     * @param host name of an actual host of Owl's House
+     * @param stat array of stats of an object
+     * @see Location
+     */
     OwlHouse(String name, String host, Stat... stat)
     {
         super(name, stat);
         this.host = host;
     }
 
-    public String toString() { return this.getName(); }
-
+    /**
+     * Returns a guest with a specific number.
+     * If there's no such guest then returns a string with notification.
+     *
+     * @param num specific number of guest.
+     * @return    name of a guest.
+     */
     public String getGuest(int num)
     {
         if (num > -1 && num < guest.length) return this.guest[num];
         else return "There is no such guest";
     }
 
-    public void enterGuests(Abstract... g)
+    /**
+     * Adds a new guests to the Owl's House.
+     *
+     * @param g array of an objects-"guests"
+     */
+    public void enterGuests(Storyline... g)
     {
         String[] prev, temp;
         if (this.guest != null)
@@ -34,12 +55,23 @@ public class OwlHouse extends Location
         this.guest = temp;
     }
 
+    /**
+     * Transfer host to the another object-"host".
+     *
+     * @param host name of new host.
+     */
     public void transferHost(String host)
     {
         this.host = host;
         System.out.println("There's new host: " + this.host);
     }
 
+    /**
+     * Check if Winnie is in an Owl's House by searching him through guest.
+     *
+     * @param w Winnie.
+     * @return  true if Winnie has a status of guest.
+     */
     public boolean isHere(Winnie w)
     {
         if(w.getLocation().equals(this.toString()) && this.guest != null)
