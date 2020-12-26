@@ -5,6 +5,9 @@ public class Main
 {
     public static void main(String[] args)
     {
+        DumbFunction dumb;
+        dumb = (d) -> d;
+
         Winnie w = new Winnie("Winnie", Stat.HAPPY, Stat.EXCITED);
         Location l = new DeepForest("Some location", Stat.FULL);
         w.stay(l);
@@ -21,7 +24,12 @@ public class Main
         w.changePosition(oh);
         oh.enterGuests(w);
         System.out.println(oh.isHere(w));
-        System.out.println(oh.getGuest(0));
+        System.out.println(oh.getGuest(dumb.dumbMethod(0)));
         oh.transferHost("Owl");
     }
+}
+
+interface DumbFunction
+{
+    int dumbMethod(int dumb);
 }
