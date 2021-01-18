@@ -10,7 +10,10 @@ public class Main
 
         Winnie w = new Winnie("Winnie", Stat.HAPPY, Stat.EXCITED);
         Location l = new DeepForest("Some location", Stat.FULL);
-        w.stay(l);
+        try {
+            w.stay(l);
+        }
+        catch (AnotherLocationException ignored) {}
         System.out.println(Arrays.toString(w.getStat()));
 
         DeepForest df = new DeepForest("Deep Forest");
