@@ -33,7 +33,14 @@ public class Winnie extends Person implements WinnieAction
      */
     public String sayPhrase(Location loc)
     {
-        return "I wander through " + loc.toString() + " and try to find honey.";
+        class doSomething
+        {
+            doSomething() {}
+            public String toString(Location loc)
+            { return "I wander through " + loc.toString() + " and try to find honey."; }
+        }
+        doSomething S = new doSomething();
+        return S.toString(loc);
     }
 
     /**
