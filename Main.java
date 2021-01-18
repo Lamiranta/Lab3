@@ -5,8 +5,15 @@ public class Main
 {
     public static void main(String[] args)
     {
-        DumbFunction dumb;
-        dumb = (d) -> d;
+        // DumbFunction dumb;
+        // dumb = (d) -> d;
+        
+        DumbFunction dumb = new DumbFunction() {
+            @Override
+            public int dumbMethod(int dumb) {
+                return dumb;
+            }
+        };
 
         Winnie w = new Winnie("Winnie", Stat.HAPPY, Stat.EXCITED);
         Location l = new DeepForest("Some location", Stat.FULL);
